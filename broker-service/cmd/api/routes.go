@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
@@ -10,6 +11,9 @@ import (
 
 func (app *Config) routes() http.Handler {
 	mux := chi.NewRouter()
+
+	// Logging for route initialization
+	log.Println("Initializing routes")
 
 	// specify who is allowed to connect
 	mux.Use(cors.Handler(cors.Options{
